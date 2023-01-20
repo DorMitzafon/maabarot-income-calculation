@@ -14,9 +14,9 @@ export const FamilySection = () => {
     const family = useAppSelector(state => state.family);
     const dispatch = useAppDispatch()
     const [expanded, setExpanded] = React.useState<string | false>(false);
-    const [numChildren, setNumChildren] = React.useState<number>(1);
+    const [numChildren, setNumChildren] = 
+        React.useState<number>(Object.keys(family.children).length|| 1);
     
-
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };

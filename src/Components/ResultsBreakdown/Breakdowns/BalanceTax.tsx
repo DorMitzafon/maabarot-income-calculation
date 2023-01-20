@@ -17,13 +17,16 @@ export const BalanceTax = () => {
 
     const displayBalanceTaxDetails = () => {
         return (
-            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+            <Box sx={{display: 'flex', flexDirection: 'column'}}>
                 <Box>
                     <DisplayLine title={`הכנסה נטו`} number={netIncome}/>
                     <DisplayLine title={`חישוב תקן`} number={balanceTax.totalHouseBenchmark}/>
                     <DisplayLine title={`הכנסה לנפש`} number={Math.round(netIncome / balanceTax.totalHouseBenchmark)}/>
                     {balanceTax.incomeMargin > 0 ?
-                        <DisplayLine title={`מס איזון`} number={balanceTax.totalTaxSum}/>
+                        <>
+                        <DisplayLine title={`יתרה מעל הבטחת הכנסה על כל נפש`} number={balanceTax.incomeMargin}/>
+                        <DisplayLine title={`סכום היתרה לניכוי מס איזון`} number={balanceTax.incomeMargin * balanceTax.numberOfFamilyMembers}/>
+                        </>
                         :
                         <>
                             <Typography variant='h6' sx={{fontWeight: 'bold', color: 'green'}}>{`ההכנסה לנפש נמוכה מהסכום המינימלי.`}</Typography>
@@ -53,7 +56,7 @@ export const BalanceTax = () => {
 
     return (
         <>
-            <ExpandableUnit title='מס איזון' displayNumber={balanceTax.incomeMargin * -1} >
+            <ExpandableUnit title='מס איזון' displayNumber={balanceTax.totalTaxSum * -1} >
                 {displayBalanceTaxDetails()}
             </ExpandableUnit>
         </>
@@ -83,7 +86,7 @@ const balanceTaxExplanation = () => (
         {`מס איזון מחושב לפי הכנסה לנפש במשפחה. המינימום הכנסה לנפש הינה ${commaNumber(NET_INCOME_THRESHOLD)}.`}
         </Typography>
         <Typography variant='body1' sx={{direction: 'rtl'}}>
-            הכנסה לנפש מחושבת עפ״י הכנסה נטו לחלק בתקן מפתח המחושב לפי המשפחה.
+            הכנסה לנפש מחושבת עפ״י הכנסה נטו לחלק בתקן המחושב לפי מספר הנפשות במשפחה.
         </Typography>
         <Typography variant='body1' sx={{direction: 'rtl'}}>
             במידה וההכנסה לנפש נמוכה מהמינימום, ההכנסה תושלם בהתאם.

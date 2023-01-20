@@ -1,7 +1,5 @@
-import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import commaNumber from 'comma-number';
-import { Title } from '../Title/Title';
 import { calculateTotalBudget } from '../../utils/budget-calculation';
 import { TotalIncome } from './Breakdowns/TotalIncome';
 import { StateAllowance } from './Breakdowns/StateAllowance';
@@ -10,6 +8,7 @@ import { InfrastructureProjection } from './Breakdowns/InfrastructureProjection'
 import { BalanceTax } from './Breakdowns/BalanceTax';
 import { MutualAssistTax } from './Breakdowns/MutualAssistTax';
 import { store } from '../../store';
+import { Box, Typography } from '@mui/material';
 
 
 export const ResultsBreakdown = () => {
@@ -28,7 +27,14 @@ export const ResultsBreakdown = () => {
             <MutualAssistTax />
             &nbsp;
             &nbsp;
-            <Title title={totalBudgetCalculation()}/>
+            <Box sx={{ display: 'flex', justifyContent: 'right', textAlign: 'center', padding: '16px' }}>
+                <Typography variant="h4" sx={{ width: '30%', flexShrink: 0, fontWeight: 'bold', textAlign: 'start' }}>
+                    סה״כ נותר
+                </Typography>
+                <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+                    {totalBudgetCalculation()}
+                </Typography>
+            </Box>
         </Paper>
     );
 }

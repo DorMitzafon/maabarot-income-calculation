@@ -5,7 +5,7 @@ import Button from '@mui/material-next/Button';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Sections from './Components/Sections';
-import { Title } from './Components/Title/Title';
+import { Title } from './Components/Titles/Title';
 import { ResultsBreakdown } from './Components/ResultsBreakdown/ResultsBreakdown';
 
 
@@ -48,7 +48,7 @@ function App() {
         </>
         :
         <>
-          <Confetti opacity={1 - celebrateTime * 0.1 } numberOfPieces={1500} gravity={0.2}/>
+          <Confetti opacity={1 - celebrateTime * 0.1 } numberOfPieces={1000} gravity={0.1}/>
           <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Title title='פירוט הכנסה חודשית'/>
             <ResultsBreakdown />

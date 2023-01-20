@@ -50,7 +50,7 @@ export const InfrastructureSection = () => {
     return (
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} sx={{direction: 'rtl'}}>
         <SectionSummary title="היטלים" subtitle='הוצאות על תשתיות'/>
-        <AccordionDetails sx={{display: 'flex'}}>
+        <AccordionDetails sx={{display: 'flex', flexDirection: 'column'}}>
             <Input 
             title='גודל הנכס'
             isError={isHouseSizeInputError}

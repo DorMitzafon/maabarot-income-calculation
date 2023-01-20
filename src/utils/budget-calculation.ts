@@ -21,7 +21,7 @@ export const netIncomeCalculation = (info: RootState) => {
 
 
 export const calculateTotalBudget = (info: RootState) => {
-    const {totalIncome} = totalIncomeCalcuation(info.income);
+    const { totalIncome } = totalIncomeCalcuation(info.income);
 
     const communityTax = communityTaxesCalculation(info);
     const infrastructureProjection = infrastructureProjectionCalculation(info);
@@ -40,7 +40,6 @@ export const calculateTotalBudget = (info: RootState) => {
     const waterExpense = monthlyWaterExpense(info);
 
     const total = netIncomeAfterBalanceDecreases - childrenEducationDecrease.totalEducationExpense - arnonaExpense - electricityExpense - waterExpense;
-    // console.log({arnonaExpense, electricityExpense, waterExpense, netIncome, netIncomeAfterBalanceDecreases, total, childrenEducationDecrease, balanceTax, mutualAssistTax});
     return total;
 }
 

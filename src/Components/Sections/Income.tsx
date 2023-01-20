@@ -15,8 +15,9 @@ export const IncomeSection = () => {
     const dispatch = useAppDispatch()
 
     const [expanded, setExpanded] = React.useState<string | false>(false);
-    const [numMembers, setNumMembers] = React.useState<number>(1);
     const [inputError, setInputError] = React.useState<Record<string, boolean>>({});
+    const [numMembers, setNumMembers] = 
+      React.useState<number>(Object.keys(income.members).length || 1);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
@@ -24,6 +25,7 @@ export const IncomeSection = () => {
     
     const renderMembers = () => Array.from(Array(numMembers).keys()).map((_, index) => {
         const isInputError = inputError[index];
+        const member = income.members[index];
         return <Box sx={{ padding: '20px' }} key={index}>
             <Typography sx={{ color: 'text.secondary' }}>{`חבר ${index + 1}`}</Typography>
             <TextField
@@ -33,6 +35,7 @@ export const IncomeSection = () => {
             label={isInputError ? 'שגיאה' : "נחוץ"}
             helperText={isInputError ? 'יכול להכיל רק ספרות' : "הכנס את המשכורת בספרות בלבד"}
             placeholder='משכורת נטו'
+            {...(member && {value: member})}
             onChange={(event) => {
                 const memberIncome = parseInt(event.target.value);
                 if (Number.isNaN(memberIncome) && event.target.value !== '') {
