@@ -38,7 +38,7 @@ export const ExpandableUnit = (props: ExpandableUnitProps) => {
             {title}
           </Typography>
           <Typography variant="body1" sx={{ display: 'flex', justifyContent: 'center',alignContent: 'center', flexDirection: 'column', color: displayNumberColor, direction: 'ltr' }}>
-              {commaNumber(displayNumber)}
+              {commaNumber(Math.round(displayNumber))}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

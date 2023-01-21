@@ -17,7 +17,7 @@ export const WATER_USAGE_TRESHOLD = 6;
 export enum WaterPriceRates {
    Low = 3.787,
    High = 9.863,
-   VIOLATION = 3.34,
+   Violation = 3.34,
 } 
 
 

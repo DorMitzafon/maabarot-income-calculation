@@ -33,5 +33,5 @@ const benchmarkCalculation = (info: RootState) => {
         }
     }));
     
-    return membersBenchmark + childrenBenchmark;
+    return parseFloat((membersBenchmark + childrenBenchmark).toFixed(1));
 }
