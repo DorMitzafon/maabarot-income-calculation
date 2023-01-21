@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <Container maxWidth="xl" sx={{ bgcolor: '#cfe8fc', display: 'block', padding: '50px', height: '100vh' }}>
+    <Container maxWidth="xl" sx={{ bgcolor: '#98caf3', display: 'block', padding: '50px', height: '100vh' }}>
       {!shouldCalculateBudget ? 
         <>
           <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>

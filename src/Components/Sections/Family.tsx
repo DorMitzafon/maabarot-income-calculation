@@ -35,7 +35,8 @@ export const FamilySection = () => {
                         defaultValue='בחר/י מסגרת'
                         onChange={(event) =>{
                             const childStatus = family.children[index];
-                            dispatch(updateChildren({...family.children, [index]: {...childStatus, education: event.target.value}}))
+                            const isFormal = event.target.value === ChildrenTypes.Elementary || event.target.value === ChildrenTypes.HighSchool;
+                            dispatch(updateChildren({...family.children, [index]: {...childStatus, education: event.target.value, isFormal}}))
                         }}
                     >
                         <MenuItem value={ChildrenTypes.Infant}>לא במסגרת</MenuItem>

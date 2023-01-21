@@ -9,6 +9,7 @@ import { BalanceTax } from './Breakdowns/BalanceTax';
 import { MutualAssistTax } from './Breakdowns/MutualAssistTax';
 import { store } from '../../store';
 import { Box, Typography } from '@mui/material';
+import { mobileAndTabletCheck } from '../../utils/mobile-detection';
 
 
 export const ResultsBreakdown = () => {
@@ -28,10 +29,10 @@ export const ResultsBreakdown = () => {
             &nbsp;
             &nbsp;
             <Box sx={{ display: 'flex', justifyContent: 'right', textAlign: 'center', padding: '16px' }}>
-                <Typography variant="h4" sx={{ width: '30%', flexShrink: 0, fontWeight: 'bold', textAlign: 'start' }}>
-                    סה״כ נותר
+                <Typography variant="h5" sx={{ width: mobileAndTabletCheck() ? '61%': '31.5%', flexShrink: 0, fontWeight: 'bold', textAlign: 'start' }}>
+                    יתרה חודשית
                 </Typography>
-                <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+                <Typography variant="h5" sx={{ fontWeight: 'bold', textAlign: 'center', color: 'green', direction: 'ltr' }}>
                     {totalBudgetCalculation()}
                 </Typography>
             </Box>

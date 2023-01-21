@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { IncomeSection } from './Sections/Income';
 import { FamilySection } from './Sections/Family';
 import { InfrastructureSection } from './Sections/Infrastructure';

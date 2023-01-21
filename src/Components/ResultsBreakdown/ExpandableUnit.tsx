@@ -6,6 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import commaNumber from 'comma-number';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box';
+import { mobileAndTabletCheck } from '../../utils/mobile-detection';
 
 interface ExpandableUnitProps extends React.PropsWithChildren {
     title: string;
@@ -33,7 +34,7 @@ export const ExpandableUnit = (props: ExpandableUnitProps) => {
             sx={{display: 'flex', alignItems: 'center'}}
             expandIcon={<ExpandMoreIcon />}
         >
-          <Typography variant="h6" sx={{ width: '33%', flexShrink: 0, fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ width: mobileAndTabletCheck() ? '70%': '33%', flexShrink: 0, fontWeight: 'bold' }}>
             {title}
           </Typography>
           <Typography variant="body1" sx={{ display: 'flex', justifyContent: 'center',alignContent: 'center', flexDirection: 'column', color: displayNumberColor, direction: 'ltr' }}>
