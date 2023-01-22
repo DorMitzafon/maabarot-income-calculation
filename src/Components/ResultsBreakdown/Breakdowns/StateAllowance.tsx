@@ -1,8 +1,6 @@
 import { store } from '../../../store';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
-import HelpIcon from '@mui/icons-material/Help';
 import { stateAllowanceCalculation } from '../../../utils/state-allowance';
 import { ExpandableUnit } from '../ExpandableUnit';
 import { DisplayLine } from '../DisplayLine';
@@ -14,11 +12,11 @@ export const StateAllowance = () => {
     const displayChildrenAllowance = () => {
         return (
             <>
-                <Box sx={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
+                <Box sx={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                     <DisplayLine title={`קצבאות ילדים`} number={stateAllowance.children.allowance}/>
-                    <Tooltip placement='top' title={<Typography>עפ״י מספר הילדים, לפי נתוני ביטוח לאומי</Typography>}>
-                        <HelpIcon sx={{color: 'lightcoral'}}/>
-                    </Tooltip>
+                    <Typography variant='body1' sx={{direction: 'rtl'}}>
+                        עפ״י מספר הילדים, לפי נתוני ביטוח לאומי
+                    </Typography>
                 </Box>       
             </>
         )
