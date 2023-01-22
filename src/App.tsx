@@ -10,7 +10,7 @@ import { RootState, store } from './store';
 
 
 const checkIsIncomeInserted = (state: RootState) => {
-    const isIncomeGreaterThanZero = Object.values(state.income.members).some(income => income > 0);
+    const isIncomeGreaterThanZero = Object.values(state.income.members).some(income => income > 0 || income === 0);
     return Object.keys(state.income.members).length > 0 && isIncomeGreaterThanZero;
 }
 
